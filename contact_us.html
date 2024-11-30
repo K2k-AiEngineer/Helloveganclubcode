@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello Vegan Club</title>
+    <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/fav.jpg">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/plugins/slider/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/plugins/slider/css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" href="text/css" href="assets/css/contact_page.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<style>
+    .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    max-width: 90%;
+    width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    animation: zoomIn 0.4s ease-out;
+}
+
+.popup-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn i {
+    transition: color 0.3s;
+}
+
+.close-btn:hover i {
+    color: #dc3545;
+}
+
+
+/* Popup Animations */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.popup.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 90%;
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .popup-icon {
+        font-size: 35px;
+    }
+
+    .popup-content p {
+        font-size: 14px;
+    }
+
+    .close-btn {
+        top: 5px;
+        right: 5px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-content {
+        width: 90%;
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    .popup-icon {
+        font-size: 30px;
+    }
+
+    .popup-content p {
+        font-size: 12px;
+    }
+
+    .close-btn {
+        top: 5px;
+        right: 5px;
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+    <header class="continer-fluid ">
+        <div class="header-top">
+            <div class="container">
+                <div class="row col-det">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <ul class="ulleft">
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                info.i@k2kitsupport.com
+                                <span>|</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-volume"></i>
+                                +91 70457 24027
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 folouws">
+
+                        <ul class="ulright">
+                            <li> <small>Follow Us </small>:</li>
+                            <li>
+                                <i class="fab fa-facebook-square"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-twitter-square"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-instagram"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-linkedin"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 d-none d-md-block col-md-6 btn-bhed">
+                        <button class="btn btn-sm btn-success"> <a href="volenteer_form.html">Join Us </a></button>
+                        <button class="btn btn-sm btn-default"> <a href="https://buy.stripe.com/6oE7taalQgpJgCc7sA"> Contribute </a> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="menu-jk" class="header-bottom">
+            <div class="container">
+                <div class="row nav-row">
+                    <div class="col-lg-3 col-md-12 logo">
+                        <a href="index.html">
+                            <img style="height: 75px;" src="assets/images/Hello vegan.png" alt="">
+                            <a data-toggle="collapse" data-target="#menu" href="#menu"><i
+                                    class="fas d-block d-lg-none  small-menu fa-bars"></i></a>
+                        </a>
+
+                    </div>
+                    <div id="menu" class="col-lg-9 col-md-12 d-none d-lg-block nav-col">
+
+                        <ul class="navbad">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about_us.html">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="initiatives.html">Initiatives</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="gallery.html">Gallery</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="clubs.html">Vegan Clubs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact_us.html">Contact US</a>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--  ************************* Page Title Starts Here ************************** -->
+
+    <div class="page-nav no-margin row">
+        <div class="container">
+            <div class="row">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><i class="fas fa-angle-double-right"></i> Contact US</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--  ************************* Contact Us Starts Here ************************** -->
+
+
+    <div style="margin-top:0px;" class="row no-margin">
+
+        <iframe style="width:100%"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.3916033243827!2d75.73964787609373!3d26.891064261019388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x846651282dd96955%3A0x3584b5c9986ea0ff!2sK2K%20It%20Support%20%26%20Solutions%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1731739865967!5m2!1sen!2sin"
+            height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    </div>
+
+    <div class="row contact-rooo no-margin">
+        <div class="container">
+            <div class="row">
+
+
+                <div style="padding:20px" class="col-sm-7">
+                    <h2>Contact Form</h2> <br>
+                    <form id="contactForm" action="/submit" method="post">
+                        <div class="row cont-row">
+                            <div class="col-sm-3"><label>Enter Name </label><span>:</span></div>
+                            <div class="col-sm-8"><input type="text" placeholder="Enter Name" name="name" id="name"
+                                    class="form-control input-sm" required></div>
+                        </div>
+                        <div class="row cont-row">
+                            <div class="col-sm-3"><label>Email Address </label><span>:</span></div>
+                            <div class="col-sm-8"><input type="text" name="email" placeholder="Enter Email Address"
+                                    id="email" class="form-control input-sm" required></div>
+                        </div>
+                        <div class="row cont-row">
+                            <div class="col-sm-3"><label>Mobile Number</label><span>:</span></div>
+                            <div class="col-sm-8"><input type="text" name="phone" placeholder="Enter Mobile Number"
+                                    id="phone" class="form-control input-sm" required></div>
+                        </div>
+                        <div class="row cont-row">
+                            <div class="col-sm-3"><label>Enter Message</label><span>:</span></div>
+                            <div class="col-sm-8">
+                                <textarea rows="5" placeholder="Enter Your Message" name="message"
+                                    class="form-control input-sm" required></textarea>
+                            </div>
+                        </div>
+                        <div style="margin-top:10px;" class="row">
+                            <div style="padding-top:10px;" class="col-sm-3"><label></label></div>
+                            <div class="col-sm-8">
+                                <button class="btn btn-primary btn-sm" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-5">
+
+                    <div style="margin:50px" class="serv">
+
+
+
+
+
+                        <h2 style="margin-top:10px;">Address</h2>
+                        <h5>Belgium</h5>
+                        Postcode 2930, <br>
+                        City Brasschaat, street Bredabaan 859<br>
+                        Belgium<br><br>
+
+                        <h5>India</h5>
+                        Office No. 205, <br>
+                        2nd floor Shree Amar heights,<br>
+                        Plot no. E 10 & 33 DCM Ajmer Road Jaipur 302006<br>
+                        <br>
+                        Phone:+91 7045724027<br>
+
+                        Email: <a href="mailto:info.i@k2kitsupport.com" class="">info.i@k2kitsupport.com</a><br>
+                        Web: <a href="https://k2k-it-ai.solutions/" class="">www.k2k-it-ai.solutions</a><br>
+
+
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!--  ************************* Footer Starts Here ************************** -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2>About Us</h2>
+                    <p>
+                        Vegan Club supports animal welfare and educates people to treat animals with kindness to make
+                        the world a happier place.
+                    </p>
+                    <p> Our club is committed to promoting a gentler world through veganism, which entails tasty food,
+                        an environmental-friendly planet,
+                        as well as ethical choices in favor of animals Join us as we journey towards living more
+                        humanely.
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h2>Useful Links</h2>
+                    <ul class="list-unstyled link-list">
+                        <li><a ui-sref="about" href="about_us.html">About us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="portfolio" href="https://www.hello-vegans.com/">Hello vegans</a><i
+                                class="fa fa-angle-right"></i>
+                        </li>
+                        <li><a ui-sref="products" href="https://vegan-dietitian.com/">Vegan Dietitian</a><i
+                                class="fa fa-angle-right"></i>
+                        </li>
+                        <li><a ui-sref="contact" href="https://k2k-it-ai.solutions/">Company Website</a><i
+                                class="fa fa-angle-right"></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 map-img">
+                    <h2>Contact Us</h2>
+                    <address class="md-margin-bottom-40">
+                        Office No. 205,2nd floor <br>
+                        Shree Amar heights, <br>
+                        DCM Ajmer Road Jaipur 302006<br>
+                        Phone: +91 7045724027 <br>
+                        Email: <a href="mailto:info.i@k2kitsupport.com" class="">info.i@k2kitsupport.com</a><br>
+                        Web: <a href="https://k2k-it-ai.solutions/" class="">www.k2k-it-ai.solutions</a>
+                    </address>
+
+                </div>
+            </div>
+
+
+            <div class="nav-box row clearfix">
+                <div class="inner col-md-9 clearfix">
+                    <ul class="footer-nav clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about_us.html">About</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <!-- <li><a href="services.html">Servies</a></li> -->
+                        <li><a href="clubs.html">Clubs</a></li>
+                        <li><a href="volenteer_form.html">Join Us</a></li>
+                    </ul>
+
+
+                </div>
+                <div class="donate-link col-md-3"><a href="https://buy.stripe.com/6oE7taalQgpJgCc7sA" class="btn btn-primary " id=""><span
+                    class="btn-title">Contribute Now</span></a></div>
+            </div>
+
+        </div>
+
+
+    </footer>
+    <div class="copy">
+        <div class="container">
+            <a href="https://k2k-it-ai.solutions/">2024 &copy; All Rights Reserved | K2K IT SUPPORT AND SOLUTIONS
+                PVT.LTD.</a>
+
+            <span>
+                <a href="https://www.instagram.com/k2k_it/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/k2k-it-support-solutions-pvt-ltd/"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://in.pinterest.com/k2k_it/"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://twitter.com/_k2kit"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/k2kitsupport"><i class="fab fa-facebook-f"></i></a>
+            </span>
+        </div>
+
+    </div>
+
+    <!-- Popup Structure -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn"><i class="fas fa-times"></i></span>
+            <div class="popup-icon">
+                <i id="popup-icon" class="fas"></i>
+            </div>
+            <p id="popup-message"></p>
+        </div>
+    </div>
+    <!-- <script type="text/javascript">
+        (function () {
+            emailjs.init('yMl33kRgwY_3Ojxyw'); // Initialize EmailJS with your user ID
+        })();
+
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            emailjs.sendForm("service_sgjo72u","template_stfzxat", this)
+                .then(function () {
+                    // Success - Show success popup
+                    const popup = document.getElementById('popup');
+                    const popupMessage = document.getElementById('popup-message');
+                    const popupIcon = document.getElementById('popup-icon');
+                    popupIcon.className = 'fas fa-check-circle';
+                    popupIcon.style.color = '#28a745';
+                    popupMessage.textContent = 'Your message has been submitted successfully!';
+                    popup.style.display = 'flex';
+                    popup.classList.add('fade-in');
+                    setTimeout(() => {
+                        popup.style.display = 'none';
+                    }, 2000); // Close popup after 2 seconds
+                }, function (error) {
+                    // Failure - Show error popup
+                    const popup = document.getElementById('popup');
+                    const popupMessage = document.getElementById('popup-message');
+                    const popupIcon = document.getElementById('popup-icon');
+                    popupIcon.className = 'fas fa-exclamation-circle';
+                    popupIcon.style.color = '#dc3545';
+                    popupMessage.textContent = 'There was an error submitting your form. Please try again.';
+                    popup.style.display = 'flex';
+                    popup.classList.add('fade-in');
+                }).catch(() => {
+                    // Network or other error - Show error popup
+                    const popup = document.getElementById('popup');
+                    const popupMessage = document.getElementById('popup-message');
+                    const popupIcon = document.getElementById('popup-icon');
+                    popupIcon.className = 'fas fa-exclamation-circle';
+                    popupIcon.style.color = '#dc3545';
+                    popupMessage.textContent = 'There was an error submitting your form. Please try again.';
+                    popup.style.display = 'flex';
+                    popup.classList.add('fade-in');
+                });
+        });
+
+        // Close popup when the close button is clicked
+        document.querySelector('.close-btn').addEventListener('click', function () {
+            document.getElementById('popup').style.display = 'none';
+        });
+    </script> -->
+    <script type="text/javascript">
+        (function () {
+            emailjs.init('lHcwLWUl1F-evZ_8a'); // Initialize EmailJS with your user ID
+        })();
+    
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+    
+            // Reference to the form element
+            const form = this;
+    
+            emailjs.sendForm("service_hl9la1p","template_75frh55", form)
+                .then(function () {
+                    // Success - Show success popup
+                    showPopup('fas fa-check-circle', '#28a745', 'Your message has been submitted successfully!');
+    
+                    // Clear the form fields after submission
+                    form.reset();
+                }, function (error) {
+                    // Failure - Show error popup
+                    showPopup('fas fa-exclamation-circle', '#dc3545', 'There was an error submitting your form. Please try again.');
+                }).catch(() => {
+                    // Network or other error - Show error popup
+                    showPopup('fas fa-exclamation-circle', '#dc3545', 'There was an error submitting your form. Please try again.');
+                });
+        });
+    
+        // Utility function to display popup
+        function showPopup(iconClass, iconColor, message) {
+            const popup = document.getElementById('popup');
+            const popupMessage = document.getElementById('popup-message');
+            const popupIcon = document.getElementById('popup-icon');
+            
+            // Update popup content
+            popupIcon.className = iconClass;
+            popupIcon.style.color = iconColor;
+            popupMessage.textContent = message;
+    
+            // Display popup with fade-in animation
+            popup.style.display = 'flex';
+            popup.classList.add('fade-in');
+    
+            // Automatically close the popup after 2 seconds
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 2000);
+        }
+    
+        // Close popup when the close button is clicked
+        document.querySelector('.close-btn').addEventListener('click', function () {
+            document.getElementById('popup').style.display = 'none';
+        });
+    </script>
+    
+
+
+
+
+</body>
+
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
+<script src="assets/plugins/slider/js/owl.carousel.min.js"></script>
+<script src="assets/js/script.js"></script>
+
+</html>

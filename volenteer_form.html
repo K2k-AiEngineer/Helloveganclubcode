@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello Vegan Club</title>
+    <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/fav.jpg">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/plugins/slider/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/plugins/slider/css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <style>
+        /* body {
+            font-family: Arial;
+            font-size: 17px;
+            padding: 8px;
+        } */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .volunteer {
+            padding: 12px 90px 13px 90px;
+        }
+
+        .rows {
+            /* display: -ms-flexbox;
+                    display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin: 0 -16px; */
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -16px;
+        }
+
+        #cols {
+            /* -ms-flex: 25%; */
+            /* IE10 */
+            flex: 25%;
+        }
+
+        #colss {
+            /* -ms-flex: 50%; */
+            /* IE10 */
+            flex: 50%;
+        }
+
+        #colsss {
+            /* -ms-flex: 75%; */
+            flex: 75%;
+        }
+
+        #cols,
+        #colss,
+        #colss {
+            padding: 0 16px;
+        }
+
+        .containers {
+            /* padding: 5px 20px 15px 20px;
+            border-radius: 3px; */
+            padding: 15px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input[type=text],
+        input[type=tel] {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .icon-container {
+            margin-bottom: 20px;
+            padding: 7px 0;
+            font-size: 24px;
+        }
+
+        .btnss {
+            background-color: #47A634;
+            color: white;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            width: 100%;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .amount-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .amount-group span {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        #country,
+        #paymentMethod {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #donation-amount {
+            width: 93%;
+            /* font-size: 22px; */
+            padding: 8px;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-left: 7%;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 17px;
+            resize: none;
+        }
+
+        textarea::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .currency-symbol {
+            position: absolute;
+            left: 0px;
+            width: 56px;
+            font-size: 20px;
+            color: #555;
+            text-align: center;
+            pointer-events: none;
+            top: 0px;
+
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 12px 12px 40px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 17px;
+            box-sizing: border-box;
+        }
+
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            max-width: 90%;
+            width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            animation: zoomIn 0.4s ease-out;
+        }
+
+        .popup-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .popup-content p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .close-btn i {
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover i {
+            color: #dc3545;
+        }
+
+        /* Popup Animations */
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .popup.fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .popup-content {
+                width: 90%;
+                max-width: 90%;
+                padding: 15px;
+            }
+
+            .popup-icon {
+                font-size: 35px;
+            }
+
+            .popup-content p {
+                font-size: 14px;
+            }
+
+            .close-btn {
+                top: 5px;
+                right: 5px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .volunteer {
+                padding: 11px 32px 0px 36px;
+            }
+
+            .popup-content {
+                width: 90%;
+                max-width: 90%;
+                padding: 10px;
+            }
+
+            .popup-icon {
+                font-size: 30px;
+            }
+
+            .popup-content p {
+                font-size: 12px;
+            }
+
+            .close-btn {
+                top: 5px;
+                right: 5px;
+                font-size: 16px;
+            }
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+        @media (max-width: 490px) {
+            .volunteer {
+                padding: 11px 32px 12px 36px;
+            }
+
+            .containers {
+                display: flex;
+                justify-content: center;
+            }
+
+            .rows {
+                flex-direction: column;
+            }
+
+            .colss {
+                margin-bottom: 20px;
+            }
+
+            .payments {
+                padding: 12px 40px 13px 40px;
+            }
+
+            #donation-amount {
+                margin-left: 20%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="continer-fluid ">
+        <div class="header-top">
+            <div class="container">
+                <div class="row col-det">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <ul class="ulleft">
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                info.i@k2kitsupport.com
+                                <span>|</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-volume"></i>
+                                +91 70457 24027
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 folouws">
+
+                        <ul class="ulright">
+                            <li> <small>Follow Us </small>:</li>
+                            <li>
+                                <i class="fab fa-facebook-square"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-twitter-square"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-instagram"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-linkedin"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 d-none d-md-block col-md-6 btn-bhed">
+                        <button class="btn btn-sm btn-success"> <a href="volenteer_form.html">Join Us </a></button>
+                        <button class="btn btn-sm btn-default"> <a href="https://buy.stripe.com/6oE7taalQgpJgCc7sA">Contribute</a> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="menu-jk" class="header-bottom">
+            <div class="container">
+                <div class="row nav-row">
+                    <div class="col-lg-3 col-md-12 logo">
+                        <a href="index.html">
+                            <img style="height: 75px;" src="assets/images/Hello vegan.png" alt="">
+                            <a data-toggle="collapse" data-target="#menu" href="#menu"><i
+                                    class="fas d-block d-lg-none  small-menu fa-bars"></i></a>
+                        </a>
+
+                    </div>
+                    <div id="menu" class="col-lg-9 col-md-12 d-none d-lg-block nav-col">
+
+                        <ul class="navbad">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about_us.html">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="initiatives.html">Initiatives</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="gallery.html">Gallery</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="clubs.html">Vegan Clubs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact_us.html">Contact US</a>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--  ************************* Page Title Starts Here ************************** -->
+
+    <div class="page-nav no-margin row">
+        <div class="container">
+            <div class="row">
+                <h2>Volunteer Form</h2>
+                <ul>
+                    <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><i class="fas fa-angle-double-right"></i> Volunteer</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!--  ************************* Payment Page ************************** -->
+    <section class="volunteer">
+
+        <div class="rows">
+            <div class="col-75" id="colsss">
+                <div class="containers">
+                    <form id="volunteerForm">
+
+                        <div class="rows">
+                            <div class="col-50" id="colss">
+                                <h3>Volunteer Details</h3>
+                                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                                <input type="text" id="fname" name="name" placeholder="John M. Doe" required>
+                                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                <input type="text" id="email" name="email" placeholder="john@example.com" required>
+                                <label for="country">Country <span class="flag-icon" id="countryFlag"></span></label>
+                                <div class="country-container">
+                                    <select id="country" name="country" required>
+                                        <option value="" disabled selected>Select your country</option>
+                                        <option value="us" data-currency="$" data-flag="us" data-phone="+1">United
+                                            States
+                                        </option>
+                                        <option value="gb" data-currency="£" data-flag="gb" data-phone="+44">United
+                                            Kingdom
+                                        </option>
+                                        <option value="ae" data-currency="د.إ" data-flag="ae" data-phone="+971">United
+                                            Arab
+                                            Emirates</option>
+                                        <option value="ar" data-currency="$" data-flag="ar" data-phone="+54">Argentina
+                                        </option>
+                                        <option value="at" data-currency="€" data-flag="at" data-phone="+43">Austria
+                                        </option>
+                                        <option value="au" data-currency="$" data-flag="au" data-phone="+61">Australia
+                                        </option>
+                                        <option value="be" data-currency="€" data-flag="be" data-phone="+32">Belgium
+                                        </option>
+                                        <option value="bg" data-currency="лв" data-flag="bg" data-phone="+359">Bulgaria
+                                        </option>
+                                        <option value="br" data-currency="R$" data-flag="br" data-phone="+55">Brazil
+                                        </option>
+                                        <option value="ca" data-currency="$" data-flag="ca" data-phone="+1">Canada
+                                        </option>
+                                        <option value="ch" data-currency="CHF" data-flag="ch" data-phone="+41">
+                                            Switzerland
+                                        </option>
+                                        <option value="cn" data-currency="¥" data-flag="cn" data-phone="+86">China
+                                        </option>
+                                        <option value="cz" data-currency="Kč" data-flag="cz" data-phone="+420">Czech
+                                            Republic</option>
+                                        <option value="de" data-currency="€" data-flag="de" data-phone="+49">Germany
+                                        </option>
+                                        <option value="dk" data-currency="kr" data-flag="dk" data-phone="+45">Denmark
+                                        </option>
+                                        <option value="es" data-currency="€" data-flag="es" data-phone="+34">Spain
+                                        </option>
+                                        <option value="fi" data-currency="€" data-flag="fi" data-phone="+358">Finland
+                                        </option>
+                                        <option value="fr" data-currency="€" data-flag="fr" data-phone="+33">France
+                                        </option>
+                                        <option value="gr" data-currency="€" data-flag="gr" data-phone="+30">Greece
+                                        </option>
+                                        <option value="hr" data-currency="kn" data-flag="hr" data-phone="+385">Croatia
+                                        </option>
+                                        <option value="hu" data-currency="Ft" data-flag="hu" data-phone="+36">Hungary
+                                        </option>
+                                        <option value="ie" data-currency="€" data-flag="ie" data-phone="+353">Ireland
+                                        </option>
+                                        <option value="il" data-currency="₪" data-flag="il" data-phone="+972">Israel
+                                        </option>
+                                        <option value="in" data-currency="₹" data-flag="in" data-phone="+91">India
+                                        </option>
+                                        <option value="it" data-currency="€" data-flag="it" data-phone="+39">Italy
+                                        </option>
+                                        <option value="jp" data-currency="¥" data-flag="jp" data-phone="+81">Japan
+                                        </option>
+                                        <option value="kz" data-currency="₸" data-flag="kz" data-phone="+7">Kazakhstan
+                                        </option>
+                                        <option value="kr" data-currency="₩" data-flag="kr" data-phone="+82">South Korea
+                                        </option>
+                                        <option value="mx" data-currency="$" data-flag="mx" data-phone="+52">Mexico
+                                        </option>
+                                        <option value="my" data-currency="RM" data-flag="my" data-phone="+60">Malaysia
+                                        </option>
+                                        <option value="nl" data-currency="€" data-flag="nl" data-phone="+31">Netherlands
+                                        </option>
+                                        <option value="no" data-currency="kr" data-flag="no" data-phone="+47">Norway
+                                        </option>
+                                        <option value="nz" data-currency="$" data-flag="nz" data-phone="+64">New Zealand
+                                        </option>
+                                        <option value="ph" data-currency="₱" data-flag="ph" data-phone="+63">Philippines
+                                        </option>
+                                        <option value="pl" data-currency="zł" data-flag="pl" data-phone="+48">Poland
+                                        </option>
+                                        <option value="pt" data-currency="€" data-flag="pt" data-phone="+351">Portugal
+                                        </option>
+                                        <option value="ro" data-currency="lei" data-flag="ro" data-phone="+40">Romania
+                                        </option>
+                                        <option value="ru" data-currency="₽" data-flag="ru" data-phone="+7">Russia
+                                        </option>
+                                        <option value="sa" data-currency="ر.س" data-flag="sa" data-phone="+966">Saudi
+                                            Arabia
+                                        </option>
+                                        <option value="se" data-currency="kr" data-flag="se" data-phone="+46">Sweden
+                                        </option>
+                                        <option value="sg" data-currency="$" data-flag="sg" data-phone="+65">Singapore
+                                        </option>
+                                        <option value="th" data-currency="฿" data-flag="th" data-phone="+66">Thailand
+                                        </option>
+                                        <option value="tr" data-currency="₺" data-flag="tr" data-phone="+90">Turkey
+                                        </option>
+                                        <option value="tw" data-currency="NT$" data-flag="tw" data-phone="+886">Taiwan
+                                        </option>
+                                        <option value="ua" data-currency="₴" data-flag="ua" data-phone="+380">Ukraine
+                                        </option>
+                                        <option value="vn" data-currency="₫" data-flag="vn" data-phone="+84">Vietnam
+                                        </option>
+                                        <option value="za" data-currency="R" data-flag="za" data-phone="+27">South
+                                            Africa
+                                        </option>
+                                    </select>
+
+
+
+                                    <label for="phone"><i class="fa fa-phone"></i> Phone Number</label>
+                                    <div class="phone-container">
+                                        <input type="tel" id="phone" name="phone" placeholder="+1 123-456-7890"
+                                            required>
+                                    </div>
+
+                                    <label for="city"><i class="fa fa-institution"></i> City</label>
+                                    <input type="text" id="city" name="city" placeholder="New York" required>
+
+
+                                    <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                                    <input type="text" id="adr" name="address" placeholder="542 W. 15th Street"
+                                        required>
+                                </div>
+                                <!-- Comment Box -->
+                                <label for="comments"><i class="fa fa-comments"></i> Why do you want to join us </label>
+                                <textarea id="comments" name="message" placeholder="Write something.."
+                                    style="height:80px"></textarea>
+                            </div>
+
+                            <div class="col-50" id="colss" style="margin-top: 40px;">
+                                <!-- <h3>Payment</h3> -->
+
+                                <label>Select Gender</label>
+
+                                <div class="radio-container">
+                                    <input type="radio" id="gender" name="gender" value="Male" required>
+                                    <label for="greenBite">Male</label><br>
+                                    <input type="radio" id="gender" name="gender" value="Female">
+                                    <label for="plantPals">Female</label><br>
+                                    <input type="radio" id="gender" name="gender" value="Prefer not to say">
+                                    <label for="vegVibe">Prefer not to say</label><br>
+                                </div>
+
+                                <div>
+                                    <label for="dob"><i class="fa fa-calendar"></i> Date of Birth</label>
+                                    <div class="dob-container">
+                                        <input type="date" id="dob" name="dob" required>
+                                    </div>
+                                </div>
+                                <h3 style="margin-top: 20px;">Term & condition</h3>
+                                <p>By joining the Hello Vegan Club as a volunteer, you agree to the following terms and
+                                    conditions that guide our community's mission and values:</p>
+                                <ol>
+                                    <li>1. Volunteers must commit to promoting veganism and its ethical principles.</li>
+                                    <li>2. All actions and communications must align with the club's mission and values.
+                                    </li>
+                                    <li>3. Respect and inclusivity are mandatory in all interactions with the community.
+                                    </li>
+                                    <li>4. Volunteers are responsible for maintaining the confidentiality of club
+                                        information.</li>
+                                    <li>5. The club reserves the right to terminate volunteer participation if
+                                        guidelines
+                                        are breached.</li>
+                                    <li>6. Volunteers are expected to contribute actively and positively to all events
+                                        and
+                                        initiatives.</li>
+                                    <li>7. Any use of the club's resources must be authorized and for club-related
+                                        purposes
+                                        only.</li>
+                                    <li>8. The club is not liable for any personal actions taken outside the scope of
+                                        volunteering activities.</li>
+                                </ol>
+
+                                <div class="terms-container">
+                                    <input type="checkbox" id="agree" name="agree" required>
+                                    <label for="agree">I agree to the terms and conditions</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <input type="submit" value="Continue to checkout" class="btnss">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Structure -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn"><i class="fas fa-times"></i></span>
+            <div class="popup-icon">
+                <i id="popup-icon" class="fas"></i>
+            </div>
+            <p id="popup-message"></p>
+        </div>
+    </div>
+
+    <!--  ************************* Footer Starts Here ************************** -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2>About Us</h2>
+                    <p>
+                        Vegan Club supports animal welfare and educates people to treat animals with kindness to make
+                        the world a happier place.
+                    </p>
+                    <p> Our club is committed to promoting a gentler world through veganism, which entails tasty food,
+                        an environmental-friendly planet,
+                        as well as ethical choices in favor of animals Join us as we journey towards living more
+                        humanely.
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h2>Useful Links</h2>
+                    <ul class="list-unstyled link-list">
+                        <li><a ui-sref="about" href="about_us.html">About us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="portfolio" href="https://www.hello-vegans.com/">Hello vegans</a><i
+                                class="fa fa-angle-right"></i>
+                        </li>
+                        <li><a ui-sref="products" href="https://vegan-dietitian.com/">Vegan Dietitian</a><i
+                                class="fa fa-angle-right"></i>
+                        </li>
+                        <li><a ui-sref="contact" href="https://k2k-it-ai.solutions/">Company Website</a><i
+                                class="fa fa-angle-right"></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 map-img">
+                    <h2>Contact Us</h2>
+                    <address class="md-margin-bottom-40">
+                        Office No. 205,2nd floor <br>
+                        Shree Amar heights, <br>
+                        DCM Ajmer Road Jaipur 302006<br>
+                        Phone: +91 7045724027 <br>
+                        Email: <a href="mailto:info.i@k2kitsupport.com" class="">info.i@k2kitsupport.com</a><br>
+                        Web: <a href="https://k2k-it-ai.solutions/" class="">www.k2k-it-ai.solutions</a>
+                    </address>
+
+                </div>
+            </div>
+
+
+            <div class="nav-box row clearfix">
+                <div class="inner col-md-9 clearfix">
+                    <ul class="footer-nav clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about_us.html">About</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="clubs.html">Clubs</a></li>
+                        <li><a href="volenteer_form.html">Join Us</a></li>
+                    </ul>
+
+
+                </div>
+                <div class="donate-link col-md-3"><a href="https://buy.stripe.com/6oE7taalQgpJgCc7sA" class="btn btn-primary " id=""><span
+                    class="btn-title">Contribute Now</span></a></div>
+            </div>
+
+        </div>
+
+
+    </footer>
+    <div class="copy">
+        <div class="container">
+            <a href="https://k2k-it-ai.solutions/">2024 &copy; All Rights Reserved | K2K IT SUPPORT AND SOLUTIONS
+                PVT.LTD.</a>
+
+            <span>
+                <a href="https://www.instagram.com/k2k_it/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/k2k-it-support-solutions-pvt-ltd/"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://in.pinterest.com/k2k_it/"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://twitter.com/_k2kit"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/k2kitsupport"><i class="fab fa-facebook-f"></i></a>
+            </span>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
+<script src="assets/plugins/slider/js/owl.carousel.min.js"></script>
+<script src="assets/js/script.js"></script>
+
+
+
+<!-- <script>
+
+    document.getElementById('country').addEventListener('change', function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var flag = selectedOption.getAttribute('data-flag');
+        var phoneCode = selectedOption.getAttribute('data-phone');
+        var countryFlag = document.getElementById('countryFlag');
+        countryFlag.className = 'flag-icon flag-icon-' + flag;
+
+        var phoneInput = document.getElementById('phone');
+        phoneInput.value = phoneCode + ' ';
+    });
+
+
+    // Initialize EmailJS
+    (function () {
+        emailjs.init('yMl33kRgwY_3Ojxyw'); // Replace with your EmailJS Public Key
+    })();
+
+    document.getElementById('volunteerForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Collect form data
+        const form = this;
+        const formData = new FormData(form);
+        const data = {};
+
+        formData.forEach((value, key) => {
+            data[key] = value;
+            console.log(data[key] +" : "+value) // Convert FormData to plain object for EmailJS
+        });
+
+        // Send form data via EmailJS
+        emailjs
+            .send("service_sgjo72u","template_stfzxat", this)
+            .then((response) => {
+                // Show success popup
+                const popup = document.getElementById('popup');
+                const popupMessage = document.getElementById('popup-message');
+                const popupIcon = document.getElementById('popup-icon');
+                popupIcon.className = 'fas fa-check-circle';
+                popupIcon.style.color = '#28a745';
+                popupMessage.textContent = 'Your Volunteer form has been submitted successfully!';
+                popup.style.display = 'flex';
+                popup.classList.add('fade-in');
+
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                    form.reset(); // Reset the form fields
+                }, 3000);
+            })
+            .catch((error) => {
+                // Show error popup
+                const popup = document.getElementById('popup');
+                const popupMessage = document.getElementById('popup-message');
+                const popupIcon = document.getElementById('popup-icon');
+                popupIcon.className = 'fas fa-exclamation-circle';
+                popupIcon.style.color = '#dc3545';
+                popupMessage.textContent = 'There was an error submitting your form. Please try again.';
+                popup.style.display = 'flex';
+                popup.classList.add('fade-in');
+
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 3000);
+
+                console.error('EmailJS Error:', error);
+            });
+    });
+
+    // Close popup when the close button is clicked
+    document.querySelector('.close-btn').addEventListener('click', function () {
+        document.getElementById('popup').style.display = 'none';
+    });
+
+
+</script> -->
+
+<script type="text/javascript">
+    // Handle country selection change
+    document.getElementById('country').addEventListener('change', function () {
+        const selectedOption = this.options[this.selectedIndex];
+        const flag = selectedOption.getAttribute('data-flag');
+        const phoneCode = selectedOption.getAttribute('data-phone');
+
+        const countryFlag = document.getElementById('countryFlag');
+        countryFlag.className = 'flag-icon flag-icon-' + flag;
+
+        const phoneInput = document.getElementById('phone');
+        phoneInput.value = phoneCode + ' ';
+    });
+
+    // Initialize EmailJS
+    (function () {
+        emailjs.init('lHcwLWUl1F-evZ_8a'); // Replace with your EmailJS Public Key
+    })();
+
+    // Handle volunteer form submission
+    document.getElementById('volunteerForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const form = this;
+
+        // Send form data via EmailJS
+        emailjs
+            .sendForm("service_hl9la1p","template_3wg0s1h", form)
+            .then(() => {
+                // Show success popup
+                showPopup(
+                    'fas fa-check-circle', 
+                    '#28a745', 
+                    'Your Volunteer form has been submitted successfully!'
+                );
+
+                // Reset the form fields after a delay
+                setTimeout(() => {
+                    form.reset();
+                }, 3000);
+            })
+            .catch((error) => {
+                // Show error popup
+                showPopup(
+                    'fas fa-exclamation-circle', 
+                    '#dc3545', 
+                    'There was an error submitting your form. Please try again.'
+                );
+                console.error('EmailJS Error:', error);
+            });
+    });
+
+    // Utility function to display popup
+    function showPopup(iconClass, iconColor, message) {
+        const popup = document.getElementById('popup');
+        const popupMessage = document.getElementById('popup-message');
+        const popupIcon = document.getElementById('popup-icon');
+
+        popupIcon.className = iconClass;
+        popupIcon.style.color = iconColor;
+        popupMessage.textContent = message;
+
+        popup.style.display = 'flex';
+        popup.classList.add('fade-in');
+
+        // Automatically close the popup after 3 seconds
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 3000);
+    }
+
+    // Close popup when the close button is clicked
+    document.querySelector('.close-btn').addEventListener('click', function () {
+        const popup = document.getElementById('popup');
+        popup.style.display = 'none';
+    });
+</script>
+
+</html>
